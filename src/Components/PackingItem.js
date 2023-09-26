@@ -1,3 +1,3 @@
-export function PackingItem() {
-  return <li>Item To Pack: Checkbox and Button</li>;
+export function PackingItem({ title }) {
+  return <li>{title}</li>;
 }

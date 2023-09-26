@@ -1,16 +1,19 @@
 /* Project based on project from TURC23 */
 
+import { useState } from "react";
 import { Banner } from "./Banner";
 import { PackingList } from "./PackingList";
 import { Stats } from "./Stats";
-import { TodoEntryForm } from "./TodoEntryForm";
+import { ToPackEntryForm } from "./ToPackEntryForm";
 
 export default function PackingTodoApp() {
+  const [packingList, setPackingList] = useState([]);
+
   return (
     <div className="app">
       <Banner />
-      <TodoEntryForm />
-      <PackingList />
+      <ToPackEntryForm setList={setPackingList} />
+      <PackingList itemsToPack={packingList} />
       <Stats />
     </div>
   );
