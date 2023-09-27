@@ -13,7 +13,7 @@ export default function PackingTodoApp() {
     <div className="app">
       <Banner />
       <ToPackEntryForm setList={setPackingList} />
-      <PackingList itemsToPack={packingList} />
+      <PackingList itemsToPack={packingList} setList={setPackingList} />
       <Stats />
     </div>
   );

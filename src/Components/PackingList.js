@@ -2,10 +2,10 @@ import { PackingItem } from "./PackingItem";
 //
 // display the list items here
 //
-export function PackingList({ itemsToPack }) {
+export function PackingList({ itemsToPack, setList }) {
   const buildListItems = () => {
     return itemsToPack.map((todo) => {
-      return <PackingItem title={todo.description} key={todo.id} />;
+      return <PackingItem toPack={todo} setList={setList} key={todo.id} />;
     });
   };
   return (
