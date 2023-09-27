@@ -1,6 +1,8 @@
 //
 //
-//
+//Note: // quantity: e.target.quantityToPack.value, isneat bit: Using html name property to pull text!
+//but, this is not a 'controled' approach, that is the DOM is controlling it, not React. React's idea
+//is to control the bits by turning it to state.
 
 import { useState } from "react";
 
@@ -8,6 +10,7 @@ export function ToPackEntryForm({ setList }) {
   //represents when the entry is placed in the packing list
   const [entryNumber, setEntryNumber] = useState(0);
   const [itemToPack, setItemToPack] = useState("");
+  const [quantityToPack, setQuantityToPack] = useState(1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ export function ToPackEntryForm({ setList }) {
       const newEntry = {
         id: entryNumber,
         description: itemToPack,
-        quantity: e.target.quantityToPack.value, //neat bit: Using html name property to pull text!
+        quantity: quantityToPack,
         packed: false,
       };
       return [...curList, newEntry];
@@ -42,11 +45,15 @@ export function ToPackEntryForm({ setList }) {
       ? { backgroundColor: "#808080" }
       : { backgroundColor: "#76c7ad" };
   };
-  //I wonder if we can avoid using state for the input text and reset the form at the same time...
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do we need for your trip?</h3>
-      <select name="quantityToPack">{generateSelectBoxEntries()}</select>
+      <select
+        name="quantityToPack"
+        onChange={(e) => setQuantityToPack(Number(e.target.value))}
+      >
+        {generateSelectBoxEntries()}
+      </select>
       <input
         type={"text"}
         placeholder={"...Item"}
