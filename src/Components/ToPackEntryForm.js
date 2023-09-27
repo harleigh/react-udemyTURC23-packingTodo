@@ -25,6 +25,7 @@ export function ToPackEntryForm({ setList }) {
       return [...curList, newEntry];
     }); //end setList
     setItemToPack("");
+    setQuantityToPack(1);
   };
 
   const generateSelectBoxEntries = () => {
