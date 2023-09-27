@@ -36,6 +36,12 @@ export function ToPackEntryForm({ setList }) {
     });
   };
 
+  //grey out the button, or make it teal-ish
+  const applyButtonStyle = () => {
+    return itemToPack === ""
+      ? { backgroundColor: "#808080" }
+      : { backgroundColor: "#76c7ad" };
+  };
   //I wonder if we can avoid using state for the input text and reset the form at the same time...
   return (
     <form className="add-form" onSubmit={handleSubmit}>
@@ -47,7 +53,9 @@ export function ToPackEntryForm({ setList }) {
         value={itemToPack}
         onChange={(e) => setItemToPack(e.target.value)}
       />
-      <button>Add</button>
+      <button disabled={itemToPack === ""} style={applyButtonStyle()}>
+        Add
+      </button>
     </form>
   );
 }

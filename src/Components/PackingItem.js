@@ -24,9 +24,13 @@ export function PackingItem({ toPack, setList }) {
 
   const displayDescription = () => {
     return toPack.packed ? (
-      <span className="packingItemComplete">{toPack.description}</span>
+      <span className="packingItemComplete">
+        {toPack.quantity + "  "} {toPack.description}
+      </span>
     ) : (
-      <span>{toPack.description}</span>
+      <span>
+        {toPack.quantity + "  "} {toPack.description}
+      </span>
     );
   };
 
