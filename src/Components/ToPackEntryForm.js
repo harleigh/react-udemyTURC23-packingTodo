@@ -29,6 +29,7 @@ export function ToPackEntryForm({ setList }) {
   };
 
   const generateSelectBoxEntries = () => {
+    //maximum number in the select box
     const maxQuantity = 15;
 
     return [...Array(maxQuantity).keys()].map((_, idx) => {

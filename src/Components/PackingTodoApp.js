@@ -14,7 +14,7 @@ export default function PackingTodoApp() {
       <Banner />
       <ToPackEntryForm setList={setPackingList} />
       <PackingList itemsToPack={packingList} setList={setPackingList} />
-      <Stats />
+      <Stats packingTodoList={packingList} />
     </div>
   );
 }
